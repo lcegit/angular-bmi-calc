@@ -14,42 +14,29 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class CalculatorPage {
   height: number;
   weight: number;
-  heightMsrmt: string;
-  weightMrsmt: string;
+  heightM: string;
+  weightM: string;
   metricToggle: boolean;
   imperialToggle: boolean;
-
   bmiValue: number;
   bmiMessage: string;
 
   calculateBMI() {
   if (this.weight > 0 && this.height > 0) {
     if (this.metricToggle == true) {
-      let finalBmi = this.weight / (this.height / 100 * this.height / 100); this.bmiValue = parseFloat(finalBmi.toFixed(2)); this.setBMIMessage();
-        let heightM = 'cm';
-          let weightM = 'kg';
+      let finalBmi = this.weight / (this.height / 100 * this.height / 100);
+      this.bmiValue = parseFloat(finalBmi.toFixed(2));
+      this.setBMIMessage();
+      this.heightM = 'cm';
+      this.weightM = 'kg';
     } else {
-      let finalBmi = this.weight * 703 / (this.height * this.height); this.bmiValue = parseFloat(finalBmi.toFixed(2)); this.setBMIMessage();
-        let heightM = 'in';
-          let weightM = 'lbs';
+      let finalBmi = this.weight * 703 / (this.height * this.height);
+      this.bmiValue = parseFloat(finalBmi.toFixed(2));
+      this.setBMIMessage();
+      this.heightM = 'in';
+      this.weightM = 'lbs';
     }
   } }
-  //
-  // setHeightMsrmnt() {
-  //   if (this.metricToggle == true) {
-  //     let heightMsrmt = 'cm'
-  //   } else { (this.imperialToggle == true)
-  //     let heightMsrmt = 'in'
-  //   }
-  // }
-  //
-  // setWeightMsrmt() {
-  //   if (this.metricToggle == true) {
-  //     let weightMrsmt = 'kg'
-  //   } else { (this.imperialToggle == true)
-  //     let weightMrsmt = 'lbs'
-  //   }
-  // }
 
   private setBMIMessage() {
   if (this.bmiValue < 18.5) {
@@ -62,7 +49,30 @@ export class CalculatorPage {
   }
 }
 
+  private changeUnits(unit) {
+    if (unit == true && this.metricToggle == true ) {
+      this.weightM = 'kg';
+      this.heightM = 'cm';
+      this.imperialToggle = false;
+    } else if (unit == true && this.metricToggle == false ) {
+      this.weightM = 'lbs';
+      this.heightM = 'in';
+      this.imperialToggle = true;
+    } else if (unit == false && this.imperialToggle == false ) {
+      this.weightM = 'kg';
+      this.heightM = 'cm';
+      this.metricToggle = true;
+    } else if (unit == false && this.imperialToggle == true ) {
+      this.weightM = 'lbs';
+      this.heightM = 'in';
+      this.metricToggle = false;
+    }
+  }
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+  this.metricToggle = true;
+  this.heightM = 'cm';
+  this.weightM = 'kg';
   }
 
   ionViewDidLoad() {
