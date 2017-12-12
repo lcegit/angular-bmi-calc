@@ -25,13 +25,33 @@
     </ion-item>
   </ion-list>
 
-  <div padding>
-    <button block ion-button color="primary" (click)="calculateBMI()">Calculate Metric</button>
-  </div>
+  <!-- <ion-item>
+    <ion-label>Metric</ion-label>
+    <ion-toggle disabled checked="true" [(ngModel)]="metricToggle"></ion-toggle>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Imperial</ion-label>
+    <ion-toggle disabled checked="false" [(ngModel)]="imperialToggle"></ion-toggle>
+  </ion-item> -->
+
+  <ion-item>
+    <ion-label>Metric</ion-label>
+    <ion-checkbox color="dark" checked="true" [(ngModel)]="metricToggle"></ion-checkbox>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Imperial</ion-label>
+    <ion-checkbox color="dark" checked="false" [(ngModel)]="imperialToggle"></ion-checkbox>
+  </ion-item>
 
   <div padding>
-    <button block ion-button color="primary" (click)="calculateImperialBMI()">Calculate Impererial</button>
+    <button block ion-button color="primary" (click)="calculateBMI()">Calculate</button>
   </div>
+<!--
+  <div padding>
+    <button block ion-button color="primary" (click)="calculateImperialBMI()">Calculate Impererial</button>
+  </div> -->
 
   <ion-card *ngIf="bmiValue"> <ion-card-header>
            BMI Calculation

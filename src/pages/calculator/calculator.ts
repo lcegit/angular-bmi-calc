@@ -16,13 +16,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class CalculatorPage {
   height: number;
   weight: number;
+  metricToggle: boolean;
+  imperialToggle: boolean;
 
   bmiValue: number;
   bmiMessage: string;
 
   calculateBMI() {
   if (this.weight > 0 && this.height > 0) {
-  let finalBmi = this.weight / (this.height / 100 * this.height / 100); this.bmiValue = parseFloat(finalBmi.toFixed(2)); this.setBMIMessage();
+    if (this.metricToggle == true) {
+      let finalBmi = this.weight / (this.height / 100 * this.height / 100); this.bmiValue = parseFloat(finalBmi.toFixed(2)); this.setBMIMessage();
+    } else {
+      let finalBmi = this.weight * 703 / (this.height * this.height); this.bmiValue = parseFloat(finalBmi.toFixed(2)); this.setBMIMessage();
+    }
   } }
 
   calculateImperialBMI() {
