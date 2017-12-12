@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the CalculatorPage page.
- *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
@@ -16,6 +14,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class CalculatorPage {
   height: number;
   weight: number;
+  heightMsrmt: string;
+  weightMrsmt: string;
   metricToggle: boolean;
   imperialToggle: boolean;
 
@@ -26,16 +26,27 @@ export class CalculatorPage {
   if (this.weight > 0 && this.height > 0) {
     if (this.metricToggle == true) {
       let finalBmi = this.weight / (this.height / 100 * this.height / 100); this.bmiValue = parseFloat(finalBmi.toFixed(2)); this.setBMIMessage();
-    } else {
+    } else (this.imperialToggle == true); {
       let finalBmi = this.weight * 703 / (this.height * this.height); this.bmiValue = parseFloat(finalBmi.toFixed(2)); this.setBMIMessage();
     }
   } }
 
-  calculateImperialBMI() {
-  if (this.weight > 0 && this.height > 0) {
-  let finalBmi = this.weight * 703 / (this.height * this.height); this.bmiValue = parseFloat(finalBmi.toFixed(2)); this.setBMIMessage();
-  } }
-  // setBMIMessage will set the text message based on the value of BMI
+  // setHeightMsrmnt() {
+  //   if (this.metricToggle == true) {
+  //     let heightMsrmt = 'cm'
+  //   } else { (this.imperialToggle == true)
+  //     let heightMsrmt = 'in'
+  //   }
+  // }
+  //
+  // setWeightMsrmt() {
+  //   if (this.metricToggle == true) {
+  //     let weightMrsmt = 'kg'
+  //   } else { (this.imperialToggle == true)
+  //     let weightMrsmt = 'lbs'
+  //   }
+  // }
+
   private setBMIMessage() {
   if (this.bmiValue < 18.5) {
   this.bmiMessage = "Underweight" }
@@ -53,5 +64,4 @@ export class CalculatorPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad CalculatorPage');
   }
-
 }
