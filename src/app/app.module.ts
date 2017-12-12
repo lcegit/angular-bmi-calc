@@ -1,3 +1,4 @@
+import { CalculatorPage } from '../pages/calculator/calculator';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -13,6 +14,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   declarations: [
     MyApp,
     AboutPage,
+    CalculatorPage,
     TabsPage
   ],
   imports: [
@@ -23,6 +25,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   entryComponents: [
     MyApp,
     AboutPage,
+    CalculatorPage,
     TabsPage
   ],
   providers: [
