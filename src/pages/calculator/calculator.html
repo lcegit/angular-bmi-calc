@@ -26,7 +26,11 @@
   </ion-list>
 
   <div padding>
-    <button block ion-button color="primary" (click)="calculateBMI()">Calculate</button>
+    <button block ion-button color="primary" (click)="calculateBMI()">Calculate Metric</button>
+  </div>
+
+  <div padding>
+    <button block ion-button color="primary" (click)="calculateImperialBMI()">Calculate Impererial</button>
   </div>
 
   <ion-card *ngIf="bmiValue"> <ion-card-header>
