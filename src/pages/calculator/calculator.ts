@@ -26,11 +26,15 @@ export class CalculatorPage {
   if (this.weight > 0 && this.height > 0) {
     if (this.metricToggle == true) {
       let finalBmi = this.weight / (this.height / 100 * this.height / 100); this.bmiValue = parseFloat(finalBmi.toFixed(2)); this.setBMIMessage();
-    } else (this.imperialToggle == true); {
+        // let heightMsrmt = 'cm';
+        //   let weightMrsmt = 'kg';
+    } else {
       let finalBmi = this.weight * 703 / (this.height * this.height); this.bmiValue = parseFloat(finalBmi.toFixed(2)); this.setBMIMessage();
+        // let heightMsrmt = 'in';
+        //   let weightMrsmt = 'lbs';
     }
   } }
-
+  //
   // setHeightMsrmnt() {
   //   if (this.metricToggle == true) {
   //     let heightMsrmt = 'cm'
